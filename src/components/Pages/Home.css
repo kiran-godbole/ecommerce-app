@@ -1,0 +1,58 @@
+/* styles.css */
+
+/* Apply some basic styling to the table */
+h1{
+    text-align: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Style table headers */
+  th {
+    background-color: #007BFF;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Style table rows */
+  tr {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Alternate row color for better readability */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style table data cells */
+  td {
+    padding: 10px;
+  }
+  
+  /* Style the "Book Ticket" button */
+  button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  table {
+    margin: 20px auto; /* Center the table horizontally */
+    width: 80%; /* Adjust the width as needed */
+    border-collapse: collapse;
+    padding: 20px; /* Add padding around the table */
+  }
+  
