@@ -1,0 +1,20 @@
+/* About.css */
+.about {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .about-image {
+    max-width: 200px; /* Set a maximum width for the image */
+    height: auto;
+    border-radius: 50%; /* Make the image circular */
+    margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Ensure the image is centered */
+    margin-bottom: 20px;
+  }
+  
+  .about-paragraph {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
