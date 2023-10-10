@@ -1,0 +1,106 @@
+/* Cart.css */
+
+/* Cart button styling */
+.cart-button {
+    position: relative;
+  }
+  
+  .cart-button .btn-secondary {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 50px; /* Make the button round */
+    padding: 10px ; /* Adjust padding for better button size */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+  }
+  
+  .cart-button .cart-trolley {
+    font-size: 24px;
+  }
+  
+  .cart-button .cart-total {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .cart-button .btn-secondary:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Cart menu styling */
+  .cart-menu {
+    width: 500px; /* Adjust the width as needed */
+    /* max-height: 400px; /*Set a maximum height for the cart menu */
+    overflow-y: auto; /* Add scrollbars if content exceeds the max height */
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px; /* Rounded corners for the cart menu */
+  }
+  
+  .cart-menu p {
+    margin: 0;
+    padding: 10px ;
+    text-align: center;
+  }
+  
+  .cart-menu ul {
+    list-style: none;
+    padding: 10px;
+  }
+  
+  .cart-menu li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    border-radius: 10px; /* Rounded corners for each cart item */
+  }
+  
+  .cart-menu li + li {
+    margin-top: 15px; /* Spacing between cart items */
+    margin-left: 10px;
+  }
+  
+  .cart-menu .cart-item-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px; /* Rounded corners for item image */
+  }
+  
+  .cart-menu .cart-item-details {
+    flex-grow: 2; /* Allow item details to grow to fill space */
+  }
+  
+  .cart-menu .cart-item-details div {
+    margin-bottom: 5px;
+    margin-left: 10px;
+  }
+  
+  .cart-menu button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding:10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+    border-radius: 5px; /* Rounded corners for the button */
+  }
+  
+  .cart-menu button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Make "Quantity" and "Price" labels bold */
+.cart-menu .cart-item-details div strong {
+    font-weight: bold;
+  }
