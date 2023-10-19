@@ -12,7 +12,7 @@ table {
   
   /* Style table headers */
   th {
-    background-color: #007BFF;
+    background-color: rgb(171, 59, 59);
     color: #fff;
     text-align: left;
     padding: 10px;
@@ -36,7 +36,7 @@ table {
   
   /* Style the "Book Ticket" button */
   button {
-    background-color: #007BFF;
+    background-color:rgb(171, 59, 59);
     color: #fff;
     border: none;
     padding: 5px 10px;
@@ -47,7 +47,7 @@ table {
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color:brown;
   }
   table {
     margin: 20px auto; /* Center the table horizontally */
@@ -55,4 +55,22 @@ table {
     border-collapse: collapse;
     padding: 20px; /* Add padding around the table */
   }
+  .loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background to dim the content behind the loader */
+    z-index: 999; /* Ensure the loader is on top of other content */
+  }
+  
+  .loading-message {
+    font-size: 24px;
+    /* Add additional styles like color, font, etc. to customize the appearance of the loading message */
+  }
+  
   
