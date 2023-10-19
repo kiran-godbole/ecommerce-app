@@ -1,5 +1,5 @@
 // src/HomePage.js
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import './Home.css'; 
 import Slider from './Slider';
 
@@ -50,29 +50,39 @@ import Slider from './Slider';
 
 const Home = () =>{
 const [movies, setMovies] = useState([]);
-  function fetchMovieHandler() {
-    fetch('https://swapi.dev/api/films/').then( response => {
-      return response.json();
-    }).then(data =>{
-      const transformedMovies = data.results.map(movieData =>{
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://swapi.dev/api/films/');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      const transformedMovies = data.results.map((movieData) => {
         return {
           id: movieData.episode_id,
           title: movieData.title,
           producer: movieData.producer,
-          date: movieData.release_date
-        }
+          date: movieData.release_date,
+        };
       });
       setMovies(transformedMovies);
-    })
-  }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  fetchData();
+}, []);
+
   return (
     <div>
       <Slider/>
-      <h1 onClick={fetchMovieHandler}>Music Albums</h1>
+      <h1>Music Albums</h1>
       <table>
         <thead>
-          <tr>
-            
+          <tr>            
             <th>Album Name</th>
             <th>Artist</th>
             <th>Release Date</th>
