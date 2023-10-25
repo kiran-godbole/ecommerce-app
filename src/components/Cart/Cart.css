@@ -6,7 +6,7 @@
   }
   
   .cart-button .btn-secondary {
-    background-color: #3498db;
+    background-color: rgb(171, 59, 59);
     color: #fff;
     border: none;
     border-radius: 50px; /* Make the button round */
@@ -28,7 +28,7 @@
   }
   
   .cart-button .btn-secondary:hover {
-    background-color: #2980b9;
+    background-color: #d71414;
   }
   
   /* Cart menu styling */
