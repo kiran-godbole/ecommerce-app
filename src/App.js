@@ -24,13 +24,13 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/store" element={<Store />} />
+          <Route path="/store" element ={authCtx.isLoggedIn ? <Store/> :  <Navigate to="/auth" />}/>
           <Route path="/contact" element={<Contact />} />
           {!authCtx.isLoggedIn && (
           <Route path="/auth" element={<AuthForm/>}/>
           )}
-          <Route path="/profile"
-          element ={authCtx.isLoggedIn ? <UserProfile/> :  <Navigate to="/auth" />}/>       
+          {/* <Route path="/profile"
+          element ={authCtx.isLoggedIn ? <UserProfile/> :  <Navigate to="/auth" />}/>        */}
           
           
           <Route path="/products/:ProductId" element={<ProductDetails />} />
