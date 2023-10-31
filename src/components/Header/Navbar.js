@@ -8,6 +8,9 @@ import AuthContext from '../Store/auth-context';
 const Navbar = () => {
     const authCtx = useContext(AuthContext);
     const isLoggedIn = authCtx.isLoggedIn;
+    const logoutHandler = () =>{
+        authCtx.logout();
+    }
     return (
         <>
             <nav class="navbar navbar-expand-lg nav-color  navbar-dark m-auto">
@@ -51,7 +54,7 @@ const Navbar = () => {
 
                             {isLoggedIn && (
                                 <li class="nav-item ">
-                                    <button>Logout</button>
+                                    <button onClick={logoutHandler}>Logout</button>
                                 </li>
 
                             )}
