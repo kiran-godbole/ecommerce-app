@@ -2,8 +2,12 @@
 import { Link } from 'react-router-dom';
 import '../Header/Navbar.css';
 import Cart from '../Cart/Cart';
+import { useContext } from 'react';
+import AuthContext from '../Store/auth-context';
 
 const Navbar = () => {
+    const authCtx = useContext(AuthContext);
+    const isLoggedIn = authCtx.isLoggedIn;
     return (
         <>
             <nav class="navbar navbar-expand-lg nav-color  navbar-dark m-auto">
@@ -32,6 +36,27 @@ const Navbar = () => {
 
                                 <Link to="/contact" class="nav-link">Contact Us</Link>
                             </li>
+                            {!isLoggedIn && (
+                                <li class="nav-item ">
+                                    <Link to='/auth' class="nav-link">Login</Link>
+                                </li>
+                            )}
+
+                            {isLoggedIn && (
+
+                                <li class="nav-item ">
+                                    <Link to='/profile' class="nav-link">Profile</Link>
+                                </li>
+                            )}
+
+                            {isLoggedIn && (
+                                <li class="nav-item ">
+                                    <button>Logout</button>
+                                </li>
+
+                            )}
+
+
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item ">
