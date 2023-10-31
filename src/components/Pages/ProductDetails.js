@@ -1,49 +1,3 @@
-// import React from 'react'
-// import { useParams } from 'react-router-dom'
-// import { Link } from 'react-router-dom';
-
-// const ProductDetails = () => {
-//     const params = useParams();
-//     console.log(params.ProductId)
-//   return (
-//     <>
-//       <h1>Product Details</h1>
-//       <p>{params.ProductId}</p>
-//     </>
-//   )
-// }
-
-// export default ProductDetails
-// -------------------------------------
-// import React from 'react';
-// import { useParams } from 'react-router-dom';
-// import {products} from './Product'
-// import './ProductDeatil.css'; // Import the CSS file
-
-// const ProductDetails = () => {
-//   const { ProductId } = useParams();
-//   console.log('ProductId:', ProductId); 
-//   const product = products.find((product) => product.title.trim() === ProductId.trim());
-
-
-//   if (!product) {
-//     return <div className="not-found">Product not found.</div>;
-//   }
-
-//   return (
-//     <div className="product-details-container">
-//       <h1 className="product-title">{product.title}</h1>
-//       <p className="product-price">Price: Rs. {product.price}</p>
-//       <img src={product.imageUrl} alt={product.title} className="product-image" />
-//     </div>
-//   );
-// };
-
-// export default ProductDetails;
-
-// ------------------------
-// ProductDetails.js
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from './Product'
@@ -59,7 +13,7 @@ const ProductDetails = () => {
   const handleAddToCart = (product) => {
     addToCart(product);
   };
-  
+
   const product = products.find((product) => product.title.trim() === ProductId);
 
   if (!product) {
