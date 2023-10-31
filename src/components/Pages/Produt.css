@@ -1,0 +1,15 @@
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.card-zoom{
+    transition: all 0.3s linear;
+    
+}
+
+.card-zoom:hover{
+    transform: scale(1.2);
+}
+.overflow-Hidden{
+    overflow: hidden;
+}
