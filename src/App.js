@@ -1,32 +1,45 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
+import { useContext } from "react";
 import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
+import Contact from "./components/Pages/Contact";
 import Store from "./components/Pages/Store";
 import Navbar from "./components/Header/Navbar";
-import Contact from "./components/Pages/Contact";
-import ProductDetail from "./components/Pages/ProductDetail";
-import Cart from "./components/Pages/Cart";
-import ErrorPage from "./components/Pages/ErrorPage";
-
 import Footer from "./components/Footer/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductDetails from "./components/Pages/ProductDetails";
+import { CartProvider } from './components/Cart/CartContext';
+import AuthForm from "./components/Autho/AuthForm";
+import UserProfile from "./components/Profile/UserProfile";
+
+import { BrowserRouter as Router, Routes, Route, Redirect } from "react-router-dom";
+import AuthContext from "./components/Store/auth-context";
 
 function App() {
+  const authCtx = useContext(AuthContext);
   return (
-    <Router>
-      <Navbar />
-      
-      <Routes>
-        <Route path="home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/store" element={<Store />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/productDetail/id:" element={<ProductDetail />} />
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="*" element={<ErrorPage/>}/>
-      </Routes>
-      <Footer/>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/contact" element={<Contact />} />
+          {!authCtx.isLoggedIn && (
+          <Route path="/auth" element={<AuthForm/>}/>
+          )}
+          <Route path="/profile"
+          element ={authCtx.isLoggedIn ? <UserProfile/> :  <Navigate to="/auth" />}/>       
+          
+          
+          <Route path="/products/:ProductId" element={<ProductDetails />} />
+          <Route path="*"
+          element={<Navigate to="/" />}/>
+        </Routes>
+        <Footer />
+      </Router>
+    </CartProvider>
   )
 }
 
