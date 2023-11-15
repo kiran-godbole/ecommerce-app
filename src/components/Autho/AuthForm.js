@@ -1,9 +1,11 @@
-import { useState, useRef, useContext } from 'react';
+
+import { useState, useRef, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AuthContext from '../Store/auth-context';
 import classes from './AuthForm.module.css';
 
-
 const AuthForm = () => {
+  const navigate = useNavigate();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
@@ -16,10 +18,13 @@ const AuthForm = () => {
     setIsLogin((prevState) => !prevState);
   };
 
+
+
   const submitHandler = (event) => {
     event.preventDefault();
 
     const enterdEmail = emailInputRef.current.value;
+    console.log('Entered Email:', enterdEmail);
     const enteredPassword = passwordInputRef.current.value;
 
     let url;
@@ -41,7 +46,7 @@ const AuthForm = () => {
       }
     }).then(res => {
       if (res.ok) {
-        alert("success")
+        // alert("success")
         return res.json();
       } else {
         return res.json().then((data) => {
@@ -53,12 +58,21 @@ const AuthForm = () => {
         });
       }
     })
-    .then(data => { 
-      authCtx.login(data.idToken);
-    })
-      .catch(err => {
-        alert(err.message)
+      .then(data => {
+        authCtx.login(data.idToken);       
+
+
+        // Save email ID in local storage
+        localStorage.setItem('userEmail', enterdEmail);
+        console.log('Email Saved in Local Storage:', enterdEmail);
+
+        authCtx.login(data.idToken);
+        navigate('/');
+
       })
+      .catch(err => {
+        alert(err.message);
+      });
 
   };
 
