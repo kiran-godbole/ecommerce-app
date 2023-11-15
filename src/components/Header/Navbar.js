@@ -45,12 +45,12 @@ const Navbar = () => {
                                 </li>
                             )}
 
-                            {isLoggedIn && (
+                            {/* {isLoggedIn && (
 
                                 <li class="nav-item ">
                                     <Link to='/profile' class="nav-link">Profile</Link>
                                 </li>
-                            )}
+                            )} */}
 
                             {isLoggedIn && (
                                 <li class="nav-item ">
