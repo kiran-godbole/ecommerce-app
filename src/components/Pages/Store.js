@@ -1,17 +1,21 @@
 import React from 'react'
+import Slider from './Slider'
+import Product from './Product'
 
 const Store = () => {
   return (
     <>
-            <div className='container'>
-                <div className='card'>
-                    <div className='card-body'>
-                        <h2>Store</h2>
-                    </div>
-                </div>
-            </div>
-        </>
+
+      <div className='card-body'>
+        <Slider />
+        <Product />
+      </div>
+
+
+    </>
   )
 }
 
 export default Store
+
+
