@@ -10,13 +10,14 @@ import Footer from "./components/Footer/Footer";
 import ProductDetails from "./components/Pages/ProductDetails";
 import { CartProvider } from './components/Cart/CartContext';
 import AuthForm from "./components/Autho/AuthForm";
-import UserProfile from "./components/Profile/UserProfile";
+
 
 import { BrowserRouter as Router, Routes, Route, Redirect } from "react-router-dom";
 import AuthContext from "./components/Store/auth-context";
 
 function App() {
   const authCtx = useContext(AuthContext);
+  
   return (
     <CartProvider>
       <Router>
@@ -33,7 +34,7 @@ function App() {
           element ={authCtx.isLoggedIn ? <UserProfile/> :  <Navigate to="/auth" />}/>        */}
           
           
-          <Route path="/products/:ProductId" element={<ProductDetails />} />
+          <Route path="/products/:ProductId" element ={authCtx.isLoggedIn ? <ProductDetails/> :  <Navigate to="/auth" />}/>
           <Route path="*"
           element={<Navigate to="/" />}/>
         </Routes>
