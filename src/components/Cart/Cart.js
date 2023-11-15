@@ -5,7 +5,12 @@ import './Cart.css';
 import { FiShoppingCart } from "react-icons/fi";
 
 const Cart = () => {
-  const { cartCount, cartItems, addToCart, removeFromCart } = useCart();
+  const { cartCount, cartItems, removeFromCart, loading } = useCart();
+  
+  // Log cart items and loading state for debugging
+  console.log('Cart Items:', cartItems);
+  // console.log('Loading:', loading);
+  
 
   const handleRemoveFromCart = (product) => {
     removeFromCart(product);
