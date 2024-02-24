@@ -1,5 +1,5 @@
 
-import { useState, useRef, useContext, useEffect } from 'react';
+import { useState, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../Store/auth-context';
 import classes from './AuthForm.module.css';

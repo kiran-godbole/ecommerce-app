@@ -8,7 +8,7 @@ import AuthContext from '../Store/auth-context';
 const Navbar = () => {
     const authCtx = useContext(AuthContext);
     const isLoggedIn = authCtx.isLoggedIn;
-    const logoutHandler = () =>{
+    const logoutHandler = () => {
         authCtx.logout();
     }
     return (
@@ -58,14 +58,14 @@ const Navbar = () => {
                                 </li>
 
                             )}
-
-
                         </ul>
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item ">
-                                <Cart />
-                            </li>
-                        </ul>
+                        {isLoggedIn && (
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item ">
+                                    <Cart />
+                                </li>
+                            </ul>
+                        )}
                     </div>
                 </div>
             </nav>
